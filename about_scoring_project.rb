@@ -31,7 +31,74 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+    
+    nums= {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
+    total_score=0
+    numbers=[]
+    dice << 1
+       
+         dice.each do |num|
+            key = num.to_s.to_sym
+            nums[key] += 1
+            numbers = nums.values
+    
+        end 
+    
+                   if numbers[0]>=4 
+                    numbers[0]-=4
+                    total_score+=1000
+                    total_score+=((numbers[0])*100)
+                
+                elsif (numbers[0])<4
+                    total_score+=((numbers[0]-1)*100)
+    
+                else
+                    total score+=0
+                end
+              
+                if numbers[1]>=3
+                    total_score+=200
+                else
+                    total_score+=0
+                end
+                    
+                if numbers[2]>=3
+                    total_score+=300
+                else
+                    total_score+=0
+                end
+    
+                if numbers[3]>=3 
+                    total_score+=400
+                else
+                    total_score+=0
+                end
+    
+                if numbers[4]>=3
+                    numbers[4]-=3
+                    total_score+=500
+                    total_score+=((numbers[4])*50)
+                    
+                elsif (numbers[4])<3
+                    total_score+=((numbers[4])*50)
+                    
+                else
+                    total_score+=0
+    
+                end
+    
+                if numbers[5]>=3 
+                    total_score+=600
+                else
+                    total_score+=0
+                end
+    
+    
+
+
 end
+
+
 
 class AboutScoringProject < Neo::Koan
   def test_score_of_an_empty_list_is_zero
